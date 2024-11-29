@@ -111,7 +111,7 @@ To include the Fabled Realms RPG Plugin in your project, add the following to yo
     <dependency>
         <groupId>com.github.joshscoper</groupId>
         <artifactId>fabled-core</artifactId>
-        <version>1.0.0</version>
+        <version>v1.0.0</version>
     </dependency>
 </dependencies>
 ```
