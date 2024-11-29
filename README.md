@@ -102,17 +102,16 @@ To include the Fabled Realms RPG Plugin in your project, add the following to yo
 ```xml
 <repositories>
     <repository>
-        <id>fabledrealms-repo</id>
-        <url>https://repo.fabledrealms.net/releases</url>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
     </repository>
 </repositories>
 
 <dependencies>
     <dependency>
-        <groupId>net.fabledrealms</groupId>
-        <artifactId>fabledrealmscore</artifactId>
+        <groupId>com.github.joshscoper</groupId>
+        <artifactId>fabled-core</artifactId>
         <version>1.0.0</version>
-        <scope>provided</scope>
     </dependency>
 </dependencies>
 ```
