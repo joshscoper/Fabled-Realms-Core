@@ -1,7 +1,7 @@
-# Fabled Realms RPG Plugin
+# Fabled Realms RPG Core Plugin
 
 ## Overview
-The Fabled Realms RPG Plugin is a comprehensive role-playing game system built for Minecraft, inspired by the likes of World of Warcraft, Dungeons & Dragons, and other MMORPGs. The plugin features character progression, skill trees, multiple races, professions, classes, and dynamic abilities that players can unlock and use during gameplay.
+The Fabled Realms RPG Core Plugin is a comprehensive role-playing game system built for Minecraft, inspired by the likes of World of Warcraft, Dungeons & Dragons, and other MMORPGs. The plugin features character progression, skill trees, multiple races, professions, classes, and dynamic abilities that players can unlock and use during gameplay.
 
 ### Features So Far
 - **Multi-Character System**: Each player can have multiple characters, each with unique attributes, classes, professions, and skill trees.
