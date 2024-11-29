@@ -1,17 +1,15 @@
 package net.fabledrealms.fabledrealmscore.models;
 
-import java.util.List;
-
-public class Faction {
+public class Bonus {
     private String name;
     private String description;
-    private List<Bonus> buffs;
+    private int levelRequired;
 
     // Constructor
-    public Faction(String name, String description, List<Bonus> buffs) {
+    public Bonus(String name, String description, int levelRequired) {
         this.name = name;
         this.description = description;
-        this.buffs = buffs;
+        this.levelRequired = levelRequired;
     }
 
     // Getters and Setters
@@ -31,11 +29,11 @@ public class Faction {
         this.description = description;
     }
 
-    public List<Bonus> getBuffs() {
-        return buffs;
+    public int getLevelRequired() {
+        return levelRequired;
     }
 
-    public void setBuffs(List<Bonus> buffs) {
-        this.buffs = buffs;
+    public void setLevelRequired(int levelRequired) {
+        this.levelRequired = levelRequired;
     }
 }

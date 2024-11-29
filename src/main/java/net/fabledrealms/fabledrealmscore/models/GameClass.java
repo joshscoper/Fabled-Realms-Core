@@ -1,89 +1,73 @@
 package net.fabledrealms.fabledrealmscore.models;
 
+import net.fabledrealms.fabledrealmscore.character.skills.SkillTree;
 import java.util.List;
 import java.util.Map;
 
 public class GameClass {
-    private final String name; // Name of the class (e.g., Warrior, Mage)
-    private final String description; // Description of the class
-    private final String role; // Role in gameplay (Tank, DPS, Support, Hybrid)
-    private final Map<String, Integer> attributes; // Base attributes (STR, DEX, etc.)
-    private final int baseHealth; // Base health value
-    private final int baseResource; // Base resource pool size
-    private final String resourceType; // Type of resource (Mana, Rage, Energy, etc.)
-    private final List<Map<String, Object>> abilities; // List of abilities
-    private final List<String> weaponSpecializations; // Preferred weapon types
-    private final List<String> armorSpecializations; // Preferred armor types
-    private final List<String> allowedRaces; // List of allowed races for this class
+    private String className;
+    private String resourceType;
+    private int baseHealth;
+    private Map<String, Integer> baseAttributes;
+    private List<String> restrictedRaces;
+    private SkillTree skillTree;
 
-    public GameClass(
-            String name,
-            String description,
-            String role,
-            Map<String, Integer> attributes,
-            int baseHealth,
-            int baseResource,
-            String resourceType,
-            List<Map<String, Object>> abilities,
-            List<String> weaponSpecializations,
-            List<String> armorSpecializations,
-            List<String> allowedRaces
-    ) {
-        this.name = name;
-        this.description = description;
-        this.role = role;
-        this.attributes = attributes;
-        this.baseHealth = baseHealth;
-        this.baseResource = baseResource;
+    // Constructor
+    public GameClass(String className, String resourceType, int baseHealth, Map<String, Integer> baseAttributes, List<String> restrictedRaces) {
+        this.className = className;
         this.resourceType = resourceType;
-        this.abilities = abilities;
-        this.weaponSpecializations = weaponSpecializations;
-        this.armorSpecializations = armorSpecializations;
-        this.allowedRaces = allowedRaces;
+        this.baseHealth = baseHealth;
+        this.baseAttributes = baseAttributes;
+        this.restrictedRaces = restrictedRaces;
+        this.skillTree = new SkillTree(className); // Initialize skill tree for the class
     }
 
-    // --- Getters ---
-    public String getName() {
-        return name;
+    // Getters and Setters
+    public String getClassName() {
+        return className;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public Map<String, Integer> getAttributes() {
-        return attributes;
-    }
-
-    public int getBaseHealth() {
-        return baseHealth;
-    }
-
-    public int getBaseResource() {
-        return baseResource;
+    public void setClassName(String className) {
+        this.className = className;
     }
 
     public String getResourceType() {
         return resourceType;
     }
 
-    public List<Map<String, Object>> getAbilities() {
-        return abilities;
+    public void setResourceType(String resourceType) {
+        this.resourceType = resourceType;
     }
 
-    public List<String> getWeaponSpecializations() {
-        return weaponSpecializations;
+    public int getBaseHealth() {
+        return baseHealth;
     }
 
-    public List<String> getArmorSpecializations() {
-        return armorSpecializations;
+    public void setBaseHealth(int baseHealth) {
+        this.baseHealth = baseHealth;
     }
 
-    public List<String> getAllowedRaces() {
-        return allowedRaces;
+    public Map<String, Integer> getBaseAttributes() {
+        return baseAttributes;
+    }
+
+    public void setBaseAttributes(Map<String, Integer> baseAttributes) {
+        this.baseAttributes = baseAttributes;
+    }
+
+    public List<String> getRestrictedRaces() {
+        return restrictedRaces;
+    }
+
+    public void setRestrictedRaces(List<String> restrictedRaces) {
+        this.restrictedRaces = restrictedRaces;
+    }
+
+    public SkillTree getSkillTree() {
+        return skillTree;
+    }
+
+    public void setSkillTree(SkillTree skillTree) {
+        this.skillTree = skillTree;
     }
 }

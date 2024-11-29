@@ -1,35 +1,51 @@
 package net.fabledrealms.fabledrealmscore.models;
 
 import java.util.List;
-import java.util.Map;
 
 public class Race {
-    private final String name; // Name of the race (e.g., Human, Elf)
-    private final String description; // Description of the race
-    private final Map<String, Integer> attributes; // Base attributes (STR, DEX, etc.)
-    private final List<Map<String, String>> bonuses; // Racial bonuses (name and description)
+    private String name;
+    private String description;
+    private int baseHealth;
+    private List<Bonus> bonuses;
 
-    public Race(String name, String description, Map<String, Integer> attributes, List<Map<String, String>> bonuses) {
+    // Constructor
+    public Race(String name, String description, int baseHealth, List<Bonus> bonuses) {
         this.name = name;
         this.description = description;
-        this.attributes = attributes;
+        this.baseHealth = baseHealth;
         this.bonuses = bonuses;
     }
 
-    // --- Getters ---
+    // Getters and Setters
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public Map<String, Integer> getAttributes() {
-        return attributes;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public List<Map<String, String>> getBonuses() {
+    public int getBaseHealth() {
+        return baseHealth;
+    }
+
+    public void setBaseHealth(int baseHealth) {
+        this.baseHealth = baseHealth;
+    }
+
+    public List<Bonus> getBonuses() {
         return bonuses;
+    }
+
+    public void setBonuses(List<Bonus> bonuses) {
+        this.bonuses = bonuses;
     }
 }

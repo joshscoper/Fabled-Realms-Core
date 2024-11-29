@@ -1,6 +1,7 @@
 package net.fabledrealms.fabledrealmscore;
 
 import net.fabledrealms.fabledrealmscore.data.CharacterDataHandler;
+import net.fabledrealms.fabledrealmscore.data.GameDataHandler;
 import net.fabledrealms.fabledrealmscore.data.PlayerDataHandler;
 import net.fabledrealms.fabledrealmscore.util.ConfigManager;
 import net.fabledrealms.fabledrealmscore.util.LangManager;
@@ -10,8 +11,10 @@ public final class Core extends JavaPlugin {
 
     private ConfigManager configManager;
     private LangManager langManager;
+    private GameDataHandler gameDataHandler;
     private PlayerDataHandler playerDataHandler;
     private CharacterDataHandler characterDataHandler;
+
 
     @Override
     public void onEnable() {
@@ -33,8 +36,11 @@ public final class Core extends JavaPlugin {
 
     private void registerHandlers(){
         getLogger().info("Registering Handlers...");
+        this.gameDataHandler = new GameDataHandler();
+        gameDataHandler.loadAllGameData(this.getDataFolder());
         this.playerDataHandler = new PlayerDataHandler(this);
         this.characterDataHandler = new CharacterDataHandler(this);
+
         getLogger().info("Handlers Registered!");
     }
 
@@ -42,5 +48,6 @@ public final class Core extends JavaPlugin {
     public LangManager getLangManager(){return langManager;}
     public PlayerDataHandler getPlayerDataHandler(){return playerDataHandler;}
     public CharacterDataHandler getCharacterDataHandler(){return characterDataHandler;}
+    public GameDataHandler getGameDataHandler(){return gameDataHandler;}
 
 }

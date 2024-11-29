@@ -1,0 +1,453 @@
+professions:
+  - name: "Mining"
+    description: "The art of extracting valuable ores and minerals from the earth."
+    base_level: 1
+    max_level: 100
+    experience_required: 1000 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Pickaxe"
+    resource_nodes:
+      - name: "Iron Ore"
+        level_required: 1
+        respawn_time: 60 # Seconds until the node respawns
+      - name: "Gold Ore"
+        level_required: 25
+        respawn_time: 120
+      - name: "Diamond Ore"
+        level_required: 50
+        respawn_time: 180
+    rewards:
+      - name: "Emerald"
+        chance: 0.05 # 5% chance to find an emerald while mining any ore
+      - name: "Geode"
+        chance: 0.01 # 1% chance to find a geode while mining
+    bonuses:
+      - name: "Mining Speed Increase"
+        description: "Increases mining speed by 10% at level 20."
+        level_required: 20
+      - name: "Increased Ore Yield"
+        description: "Gain an additional ore when mining at level 50."
+        level_required: 50
+
+  - name: "Smithing"
+    description: "Crafting and improving weapons and armor using mined ores."
+    base_level: 1
+    max_level: 100
+    experience_required: 1500 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Hammer"
+    materials:
+      - name: "Iron Ingot"
+        source: "Refined from Iron Ore"
+      - name: "Steel Ingot"
+        source: "Refined from Iron Ore and Coal"
+    crafted_items:
+      - name: "Iron Sword"
+        level_required: 1
+        materials_required:
+          - "Iron Ingot: 2"
+      - name: "Steel Armor"
+        level_required: 25
+        materials_required:
+          - "Steel Ingot: 5"
+          - "Leather Strips: 2"
+    bonuses:
+      - name: "Crafting Efficiency"
+        description: "Reduces material usage by 10% at level 30."
+        level_required: 30
+      - name: "Quick Smith"
+        description: "Reduces crafting time by 20% at level 50."
+        level_required: 50
+      - name: "Masterpiece Crafting"
+        description: "Chance to craft a Masterpiece item with enhanced stats at level 80."
+        level_required: 80
+
+  - name: "Woodcutting"
+    description: "Harvesting trees and gathering wood."
+    base_level: 1
+    max_level: 100
+    experience_required: 800 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Axe"
+    resource_nodes:
+      - name: "Oak Tree"
+        level_required: 1
+        respawn_time: 60 # Seconds until the tree respawns
+      - name: "Spruce Tree"
+        level_required: 10
+        respawn_time: 90
+    rewards:
+      - name: "Bird Nest"
+        chance: 0.02 # 2% chance to find a bird nest while cutting any tree
+    bonuses:
+      - name: "Woodcutting Speed Increase"
+        description: "Increases woodcutting speed by 10% at level 20."
+        level_required: 20
+      - name: "Increased Log Yield"
+        description: "Gain an additional log when cutting trees at level 50."
+        level_required: 50
+
+  - name: "Fishing"
+    description: "Catch fish from various bodies of water."
+    base_level: 1
+    max_level: 100
+    experience_required: 1200 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Fishing Rod"
+    resource_nodes:
+      - name: "River"
+        level_required: 1
+        respawn_time: 30 # Seconds until the fish respawn
+      - name: "Lake"
+        level_required: 15
+        respawn_time: 45
+    rewards:
+      - name: "Pearl"
+        chance: 0.03 # 3% chance to find a pearl while fishing
+    bonuses:
+      - name: "Fishing Speed Increase"
+        description: "Increases fishing speed by 10% at level 20."
+        level_required: 20
+      - name: "Increased Catch Yield"
+        description: "Gain an additional fish when fishing at level 50."
+        level_required: 50
+
+  - name: "Herblore"
+    description: "Collect and mix herbs to create potions."
+    base_level: 1
+    max_level: 100
+    experience_required: 1300 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Mortar and Pestle"
+    resource_nodes:
+      - name: "Mint Leaf"
+        level_required: 1
+        respawn_time: 45 # Seconds until the herb respawns
+      - name: "Bloodroot"
+        level_required: 20
+        respawn_time: 90
+    rewards:
+      - name: "Rare Herb"
+        chance: 0.05 # 5% chance to find a rare herb while gathering
+    bonuses:
+      - name: "Herb Gathering Speed Increase"
+        description: "Increases herb gathering speed by 10% at level 20."
+        level_required: 20
+      - name: "Increased Herb Yield"
+        description: "Gain an additional herb when gathering at level 50."
+        level_required: 50
+
+  - name: "Skinning"
+    description: "Harvesting hides and leather from animals."
+    base_level: 1
+    max_level: 100
+    experience_required: 1000 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Skinning Knife"
+    resource_nodes:
+      - name: "Deer"
+        level_required: 1
+        respawn_time: 60 # Seconds until the animal respawns
+      - name: "Bear"
+        level_required: 20
+        respawn_time: 120
+    rewards:
+      - name: "Rare Pelt"
+        chance: 0.03 # 3% chance to find a rare pelt while skinning
+    bonuses:
+      - name: "Skinning Speed Increase"
+        description: "Increases skinning speed by 10% at level 20."
+        level_required: 20
+      - name: "Increased Hide Yield"
+        description: "Gain an additional hide when skinning at level 50."
+        level_required: 50
+
+  - name: "Leatherworking"
+    description: "Crafting armor and goods using leather and hides."
+    base_level: 1
+    max_level: 100
+    experience_required: 1500 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Leatherworking Knife"
+    materials:
+      - name: "Leather"
+        source: "Crafted from Hides"
+      - name: "Tough Leather"
+        source: "Crafted from Rare Pelts"
+    crafted_items:
+      - name: "Leather Boots"
+        level_required: 1
+        materials_required:
+          - "Leather: 2"
+      - name: "Tough Leather Armor"
+        level_required: 25
+        materials_required:
+          - "Tough Leather: 5"
+    bonuses:
+      - name: "Crafting Efficiency"
+        description: "Reduces material usage by 10% at level 30."
+        level_required: 30
+      - name: "Quick Craft"
+        description: "Reduces crafting time by 20% at level 50."
+        level_required: 50
+      - name: "Masterpiece Crafting"
+        description: "Chance to craft a Masterpiece item with enhanced stats at level 80."
+        level_required: 80
+
+  - name: "Fletching"
+    description: "Crafting arrows, bows, and crossbows using wood and feathers."
+    base_level: 1
+    max_level: 100
+    experience_required: 1200 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Fletching Knife"
+    materials:
+      - name: "Wood Shaft"
+        source: "Crafted from Oak Wood"
+      - name: "Feather"
+        source: "Gathered from Birds"
+    crafted_items:
+      - name: "Basic Arrow"
+        level_required: 1
+        materials_required:
+          - "Wood Shaft: 1"
+          - "Feather: 1"
+      - name: "Longbow"
+        level_required: 15
+        materials_required:
+          - "Wood Shaft: 3"
+    bonuses:
+      - name: "Fletching Speed Increase"
+        description: "Increases fletching speed by 10% at level 20."
+        level_required: 20
+      - name: "Increased Arrow Yield"
+        description: "Gain additional arrows when crafting at level 50."
+        level_required: 50
+
+  - name: "Alchemy"
+    description: "Creating potions and elixirs using various herbs and ingredients."
+    base_level: 1
+    max_level: 100
+    experience_required: 1500 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Alchemist's Flask"
+    materials:
+      - name: "Herb Extract"
+        source: "Extracted from Herbs"
+      - name: "Crystal Vial"
+        source: "Crafted from Sand"
+    crafted_items:
+      - name: "Health Potion"
+        level_required: 1
+        materials_required:
+          - "Herb Extract: 1"
+          - "Crystal Vial: 1"
+      - name: "Mana Elixir"
+        level_required: 20
+        materials_required:
+          - "Herb Extract: 2"
+          - "Crystal Vial: 1"
+    bonuses:
+      - name: "Potion Efficiency"
+        description: "Reduces the number of herbs required by 10% at level 30."
+        level_required: 30
+      - name: "Quick Brewing"
+        description: "Reduces brewing time by 20% at level 50."
+        level_required: 50
+      - name: "Master Alchemist"
+        description: "Chance to create an extra potion when crafting at level 80."
+        level_required: 80
+
+  - name: "Farming"
+    description: "Growing crops and gathering agricultural resources."
+    base_level: 1
+    max_level: 100
+    experience_required: 1000 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Hoe"
+    resource_nodes:
+      - name: "Wheat"
+        level_required: 1
+        respawn_time: 60 # Seconds until the crop regrows
+      - name: "Carrot"
+        level_required: 5
+        respawn_time: 45
+    rewards:
+      - name: "Golden Carrot"
+        chance: 0.02 # 2% chance to find a golden carrot while harvesting
+    bonuses:
+      - name: "Crop Growth Increase"
+        description: "Increases crop growth speed by 10% at level 20."
+        level_required: 20
+      - name: "Increased Harvest Yield"
+        description: "Gain an additional crop when harvesting at level 50."
+        level_required: 50
+
+  - name: "Cooking"
+    description: "Preparing meals and dishes using gathered ingredients."
+    base_level: 1
+    max_level: 100
+    experience_required: 1500 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Cooking Pot"
+    materials:
+      - name: "Raw Meat"
+        source: "Gathered from Animals"
+      - name: "Vegetables"
+        source: "Gathered from Farming"
+    crafted_items:
+      - name: "Grilled Meat"
+        level_required: 1
+        materials_required:
+          - "Raw Meat: 1"
+      - name: "Vegetable Stew"
+        level_required: 10
+        materials_required:
+          - "Vegetables: 3"
+          - "Water: 1"
+    bonuses:
+      - name: "Cooking Efficiency"
+        description: "Reduces the number of ingredients required by 10% at level 30."
+        level_required: 30
+      - name: "Quick Cooking"
+        description: "Reduces cooking time by 20% at level 50."
+        level_required: 50
+      - name: "Master Chef"
+        description: "Chance to create an extra dish when cooking at level 80."
+        level_required: 80
+
+  - name: "Enchanting"
+    description: "Imbuing items with magical properties."
+    base_level: 1
+    max_level: 100
+    experience_required: 1800 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Enchanting Table"
+    materials:
+      - name: "Lapis Lazuli"
+        source: "Mined from Lapis Ore"
+      - name: "Enchanted Book"
+        source: "Crafted using Book and Enchantment"
+    crafted_items:
+      - name: "Enchanted Sword"
+        level_required: 10
+        materials_required:
+          - "Iron Sword: 1"
+          - "Lapis Lazuli: 3"
+      - name: "Enchanted Armor"
+        level_required: 20
+        materials_required:
+          - "Steel Armor: 1"
+          - "Lapis Lazuli: 5"
+    bonuses:
+      - name: "Enchanting Efficiency"
+        description: "Reduces the number of materials required by 10% at level 30."
+        level_required: 30
+      - name: "Quick Enchanting"
+        description: "Reduces enchanting time by 20% at level 50."
+        level_required: 50
+      - name: "Master Enchanter"
+        description: "Chance to apply an extra enchantment at level 80."
+        level_required: 80
+
+  - name: "Carpentry"
+    description: "Crafting wooden items and structures."
+    base_level: 1
+    max_level: 100
+    experience_required: 1500 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Saw"
+    materials:
+      - name: "Plank"
+        source: "Crafted from Wood"
+      - name: "Nails"
+        source: "Crafted from Iron"
+    crafted_items:
+      - name: "Wooden Chair"
+        level_required: 1
+        materials_required:
+          - "Plank: 4"
+          - "Nails: 2"
+      - name: "Wooden Table"
+        level_required: 15
+        materials_required:
+          - "Plank: 8"
+          - "Nails: 4"
+    bonuses:
+      - name: "Carpentry Efficiency"
+        description: "Reduces material usage by 10% at level 30."
+        level_required: 30
+      - name: "Quick Carpentry"
+        description: "Reduces crafting time by 20% at level 50."
+        level_required: 50
+      - name: "Master Carpenter"
+        description: "Chance to craft an extra item when crafting at level 80."
+        level_required: 80
+
+  - name: "Jewelcrafting"
+    description: "Creating rings, necklaces, and other jewelry."
+    base_level: 1
+    max_level: 100
+    experience_required: 1700 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Jeweler's Hammer"
+    materials:
+      - name: "Gold Ingot"
+        source: "Refined from Gold Ore"
+      - name: "Gemstone"
+        source: "Mined from Gemstone Vein"
+    crafted_items:
+      - name: "Gold Ring"
+        level_required: 10
+        materials_required:
+          - "Gold Ingot: 2"
+          - "Gemstone: 1"
+      - name: "Necklace of Power"
+        level_required: 25
+        materials_required:
+          - "Gold Ingot: 3"
+          - "Gemstone: 2"
+    bonuses:
+      - name: "Jewelcrafting Efficiency"
+        description: "Reduces material usage by 10% at level 30."
+        level_required: 30
+      - name: "Quick Jewelcrafting"
+        description: "Reduces crafting time by 20% at level 50."
+        level_required: 50
+      - name: "Master Jeweler"
+        description: "Chance to craft an extra piece of jewelry at level 80."
+        level_required: 80
+
+  - name: "Engineering"
+    description: "Crafting mechanical and complex items."
+    base_level: 1
+    max_level: 100
+    experience_required: 2000 # Base experience needed to reach the next level, adjustable per level
+    tools:
+      - "Wrench"
+    materials:
+      - name: "Gear"
+        source: "Crafted from Steel"
+      - name: "Circuit Board"
+        source: "Crafted from Copper and Gold"
+    crafted_items:
+      - name: "Mechanical Trap"
+        level_required: 20
+        materials_required:
+          - "Gear: 3"
+          - "Circuit Board: 1"
+      - name: "Clockwork Robot"
+        level_required: 40
+        materials_required:
+          - "Gear: 6"
+          - "Circuit Board: 3"
+    bonuses:
+      - name: "Engineering Efficiency"
+        description: "Reduces material usage by 10% at level 30."
+        level_required: 30
+      - name: "Quick Engineering"
+        description: "Reduces crafting time by 20% at level 50."
+        level_required: 50
+      - name: "Master Engineer"
+        description: "Chance to craft an extra mechanical item at level 80."
+        level_required: 80

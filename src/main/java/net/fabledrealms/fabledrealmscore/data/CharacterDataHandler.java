@@ -2,6 +2,9 @@ package net.fabledrealms.fabledrealmscore.data;
 
 import net.fabledrealms.fabledrealmscore.Core;
 import net.fabledrealms.fabledrealmscore.character.FabledCharacter;
+import net.fabledrealms.fabledrealmscore.character.skills.SkillNode;
+import net.fabledrealms.fabledrealmscore.character.skills.SkillTree;
+import net.fabledrealms.fabledrealmscore.util.ItemSerializationUtils;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -62,20 +65,20 @@ public class CharacterDataHandler {
     }
 
     private FabledCharacter mapToFabledCharacter(Map<?, ?> data) {
-        FabledCharacter character = new FabledCharacter((int) data.get("character_id"), (String) data.get("name"));
+        FabledCharacter character = new FabledCharacter((int) data.get("character_id"), (String) data.get("name"), (String) data.get("class"));
 
         character.setLevel((int) data.get("level"));
         character.setExperience((int) data.get("experience"));
-        character.setCharacterClass((String) data.get("class"));
         character.setRace((String) data.get("race"));
         character.setFaction((String) data.get("faction"));
         character.setGuild((String) data.get("guild"));
         character.setAttributes((Map<String, Integer>) data.get("attributes"));
         character.setProfessions((Map<String, Map<String, Integer>>) data.get("professions"));
 
+        // Use ItemSerializationUtils to deserialize inventory and equipment
         try {
-            character.setInventory((Map<Integer, String>) data.get("inventory"));
-            character.setEquipment((Map<String, String>) data.get("equipment"));
+            character.setInventory(ItemSerializationUtils.deserializeInventory((String) data.get("inventory")));
+            character.setEquipment(ItemSerializationUtils.deserializeEquipment((String) data.get("equipment")));
         } catch (Exception e) {
             core.getLogger().warning("Failed to deserialize inventory or equipment for character " + character.getCharacterId());
         }
@@ -83,6 +86,28 @@ public class CharacterDataHandler {
         character.setCurrentLocation((String) data.get("current_location"));
         character.setCreatedAt((String) data.get("created_at"));
         character.setUpdatedAt((String) data.get("updated_at"));
+
+        // Add unlocked abilities and skill progression
+        character.setUnlockedAbilities((List<String>) data.get("unlocked_abilities"));
+        character.setSkills((Map<String, Integer>) data.get("skills"));
+
+        // Load skill tree data
+        SkillTree skillTree = new SkillTree(character.getCharacterClass());
+        List<Map<?, ?>> skillNodes = (List<Map<?, ?>>) data.get("skill_tree");
+        if (skillNodes != null) {
+            for (Map<?, ?> nodeData : skillNodes) {
+                SkillNode skillNode = new SkillNode(
+                        (String) nodeData.get("name"),
+                        (String) nodeData.get("type"),
+                        (int) nodeData.get("level_required"),
+                        (List<String>) nodeData.get("prerequisites"),
+                        (int) nodeData.get("skill_points_required")
+                );
+                skillNode.setUnlocked((boolean) nodeData.get("is_unlocked"));
+                skillTree.addSkillNode(skillNode);
+            }
+        }
+        character.setSkillTree(skillTree);
 
         return character;
     }
@@ -99,11 +124,38 @@ public class CharacterDataHandler {
         data.put("guild", character.getGuild());
         data.put("attributes", character.getAttributes());
         data.put("professions", character.getProfessions());
-        data.put("inventory", character.getInventory());
-        data.put("equipment", character.getEquipment());
+
+        // Serialize inventory and equipment using ItemSerializationUtils
+        try {
+            data.put("inventory", ItemSerializationUtils.serializeInventory(character.getInventory()));
+            data.put("equipment", ItemSerializationUtils.serializeEquipment(character.getEquipment()));
+        } catch (IOException e) {
+            core.getLogger().severe("Failed to serialize inventory or equipment for character " + character.getCharacterId());
+            e.printStackTrace();
+        }
+
         data.put("current_location", character.getCurrentLocation());
         data.put("created_at", character.getCreatedAt());
         data.put("updated_at", character.getUpdatedAt());
+
+        // Add unlocked abilities and skill progression
+        data.put("unlocked_abilities", character.getUnlockedAbilities());
+        data.put("skills", character.getSkills());
+
+        // Save skill tree data
+        List<Map<String, Object>> skillNodes = new ArrayList<>();
+        for (SkillNode node : character.getSkillTree().getSkillNodes().values()) {
+            Map<String, Object> nodeData = new HashMap<>();
+            nodeData.put("name", node.getName());
+            nodeData.put("type", node.getType());
+            nodeData.put("level_required", node.getLevelRequired());
+            nodeData.put("prerequisites", node.getPrerequisites());
+            nodeData.put("skill_points_required", node.getSkillPointsRequired());
+            nodeData.put("is_unlocked", node.isUnlocked());
+            skillNodes.add(nodeData);
+        }
+        data.put("skill_tree", skillNodes);
+
         return data;
     }
 
