@@ -1,0 +1,3 @@
+example:
+  welcome: "Welkom {player} bij Fabled Realms!"
+  farewell: "Vaarwel {player}!"

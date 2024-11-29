@@ -1,0 +1,75 @@
+races:
+  - name: "Human"
+    description: "Versatile and adaptable, humans excel in various professions and combat roles."
+    attributes:
+      STR: 10
+      DEX: 10
+      CON: 10
+      INT: 10
+      WIS: 10
+      CHA: 10
+    bonuses:
+      - name: "Versatile"
+        description: "Gain a small bonus to all skills."
+      - name: "Resilient"
+        description: "Reduce incoming damage by 5%."
+
+  - name: "Elf"
+    description: "Graceful and attuned to magic and nature, elves are nimble and intelligent."
+    attributes:
+      STR: 8
+      DEX: 12
+      CON: 8
+      INT: 14
+      WIS: 12
+      CHA: 8
+    bonuses:
+      - name: "Keen Senses"
+        description: "Increased accuracy with ranged weapons."
+      - name: "Natural Affinity"
+        description: "Gain extra resources from gathering professions."
+
+  - name: "Dwarf"
+    description: "Sturdy and strong, dwarves are natural craftsmen and resilient warriors."
+    attributes:
+      STR: 12
+      DEX: 8
+      CON: 14
+      INT: 8
+      WIS: 10
+      CHA: 8
+    bonuses:
+      - name: "Stoneform"
+        description: "Increased resistance to physical damage."
+      - name: "Craftsman's Touch"
+        description: "Reduced crafting time for smithing and engineering."
+
+  - name: "Orc"
+    description: "Fierce and powerful, orcs are natural-born warriors with incredible strength."
+    attributes:
+      STR: 14
+      DEX: 8
+      CON: 12
+      INT: 6
+      WIS: 8
+      CHA: 6
+    bonuses:
+      - name: "Blood Fury"
+        description: "Temporarily increases strength and damage output."
+      - name: "Savage Endurance"
+        description: "Regenerate health faster out of combat."
+
+  - name: "Troll"
+    description: "Agile and cunning, trolls are adaptable and excel in unconventional combat."
+    attributes:
+      STR: 10
+      DEX: 14
+      CON: 8
+      INT: 10
+      WIS: 8
+      CHA: 8
+    bonuses:
+      - name: "Regeneration"
+        description: "Heal small amounts of health over time."
+      - name: "Jungle Lore"
+        description: "Increased movement speed in natural environments."

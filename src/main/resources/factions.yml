@@ -1,0 +1,24 @@
+factions:
+  - name: "Aegis"
+    description: "A coalition of noble races striving for balance and justice."
+    buffs:
+      - name: "Fortitude"
+        description: "Increase health by 5%."
+      - name: "Courage"
+        description: "Increase melee and ranged damage by 3%."
+
+  - name: "Vanguard"
+    description: "A group of determined warriors fighting for freedom and unity."
+    buffs:
+      - name: "Tenacity"
+        description: "Increase attack speed by 5%."
+      - name: "Endurance"
+        description: "Increase resistance to physical and magical damage by 3%."
+
+  - name: "Nomads"
+    description: "Individuals who operate outside the bounds of faction conflict, following their own path."
+    buffs:
+      - name: "Adaptability"
+        description: "Increase movement speed by 5%."
+      - name: "Survivor's Instinct"
+        description: "Regenerate health slightly faster out of combat."

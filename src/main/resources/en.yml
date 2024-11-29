@@ -1,0 +1,3 @@
+example:
+  welcome: "Welcome {player} to Fabled Realms!"
+  farewell: "Goodbye {player}!"

@@ -1,0 +1,168 @@
+classes:
+  - name: "Warrior"
+    description: "A melee fighter skilled with weapons and heavy armor."
+    role: "Tank"
+    attributes:
+      STR: 15
+      DEX: 8
+      CON: 14
+      INT: 6
+      WIS: 8
+      CHA: 10
+    base_health: 200
+    base_resource: 100
+    resource_type: "Rage"
+    abilities:
+      - name: "Power Strike"
+        description: "A powerful melee attack that deals bonus damage."
+        cooldown: 10
+        damage: 20
+        cost: 15
+      - name: "Shield Wall"
+        description: "Raises your shield to reduce incoming damage by 50% for 5 seconds."
+        cooldown: 30
+        cost: 10
+    weapon_specializations:
+      - "Swords"
+      - "Axes"
+      - "Maces"
+    armor_specializations:
+      - "Heavy Armor"
+    allowed_races:
+      - "Human"
+      - "Dwarf"
+      - "Orc"
+
+  - name: "Mage"
+    description: "A spellcaster specializing in elemental magic."
+    role: "DPS"
+    attributes:
+      STR: 6
+      DEX: 8
+      CON: 8
+      INT: 16
+      WIS: 14
+      CHA: 8
+    base_health: 120
+    base_resource: 150
+    resource_type: "Mana"
+    abilities:
+      - name: "Fireball"
+        description: "Launches a fireball that explodes on impact, dealing AoE damage."
+        cooldown: 5
+        damage: 30
+        cost: 25
+      - name: "Arcane Blast"
+        description: "Deals high single-target magic damage."
+        cooldown: 12
+        damage: 40
+        cost: 35
+    weapon_specializations:
+      - "Staves"
+      - "Wands"
+    armor_specializations:
+      - "Cloth Armor"
+    allowed_races:
+      - "Human"
+      - "Elf"
+      - "Troll"
+
+  - name: "Paladin"
+    description: "A holy warrior who uses divine magic to protect and heal."
+    role: "Support"
+    attributes:
+      STR: 12
+      DEX: 8
+      CON: 12
+      INT: 10
+      WIS: 14
+      CHA: 12
+    base_health: 180
+    base_resource: 140
+    resource_type: "Mana"
+    abilities:
+      - name: "Holy Light"
+        description: "Heals an ally for a significant amount."
+        cooldown: 6
+        healing: 30
+        cost: 20
+      - name: "Divine Shield"
+        description: "Shields an ally from all damage for 4 seconds."
+        cooldown: 15
+        cost: 25
+    weapon_specializations:
+      - "Hammers"
+      - "Swords"
+    armor_specializations:
+      - "Heavy Armor"
+    allowed_races:
+      - "Human"
+      - "Dwarf"
+
+  - name: "Rogue"
+    description: "A stealthy fighter adept at dealing critical strikes."
+    role: "DPS"
+    attributes:
+      STR: 10
+      DEX: 16
+      CON: 8
+      INT: 8
+      WIS: 6
+      CHA: 10
+    base_health: 140
+    base_resource: 120
+    resource_type: "Energy"
+    abilities:
+      - name: "Backstab"
+        description: "Attacks from behind to deal critical damage."
+        cooldown: 8
+        damage: 25
+        cost: 20
+      - name: "Evasion"
+        description: "Increases dodge chance by 50% for 6 seconds."
+        cooldown: 20
+        cost: 15
+    weapon_specializations:
+      - "Daggers"
+      - "Swords"
+    armor_specializations:
+      - "Leather Armor"
+    allowed_races:
+      - "Human"
+      - "Elf"
+      - "Orc"
+      - "Troll"
+
+  - name: "Hunter"
+    description: "A master of ranged combat and animal companionship."
+    role: "DPS"
+    attributes:
+      STR: 10
+      DEX: 14
+      CON: 10
+      INT: 10
+      WIS: 10
+      CHA: 10
+    base_health: 160
+    base_resource: 120
+    resource_type: "Energy"
+    abilities:
+      - name: "Rapid Shot"
+        description: "Fires multiple arrows in rapid succession."
+        cooldown: 10
+        damage: 20
+        cost: 15
+      - name: "Beast Command"
+        description: "Commands your pet to attack the enemy, dealing bonus damage."
+        cooldown: 12
+        cost: 20
+    weapon_specializations:
+      - "Bows"
+      - "Crossbows"
+    armor_specializations:
+      - "Leather Armor"
+    allowed_races:
+      - "Human"
+      - "Elf"
+      - "Orc"
+      - "Troll"
